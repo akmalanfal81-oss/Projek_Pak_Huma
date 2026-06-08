@@ -1,12 +1,10 @@
 <?php
 require 'Database/config.php';
 require 'Logic/fuction.php';
-require 'includes/header.php'; // Header dipanggil di awal saja
+require 'includes/header.php'; 
 
-// Menangkap jenis paket dari URL (misal: ?paket=industri)
 $jenis_paket = isset($_GET['paket']) ? $_GET['paket'] : '';
 
-// Menentukan konten berdasarkan paket yang dipilih
 $judul_paket = "";
 $deskripsi_paket = "";
 $gambar_placeholder = "";
@@ -24,48 +22,40 @@ if ($jenis_paket == 'industri') {
     $deskripsi_paket = "Sajian lengkap untuk acara gathering kantor. Termasuk menu utama, gubukan, fasilitas meja, dekorasi, dan dilayani oleh pramusaji berpengalaman. Minimum pemesanan 100 porsi.";
     $gambar_placeholder = "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"; 
 } else {
-    // Jika paket tidak ditemukan, kembalikan ke index
     header("Location: index.php");
     exit();
 }
 ?>
 
-<div class="container" style="margin-top: 40px; margin-bottom: 60px;">
-    <a href="index.php" style="color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
-        &larr; Kembali ke Beranda
-    </a>
-    
-    <div style="background: var(--white); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; margin-top: 20px; display: flex; flex-wrap: wrap;">
-        
-        <div style="flex: 1; min-width: 300px;">
-            <img src="<?= $gambar_placeholder ?>" alt="<?= $judul_paket ?>" style="width: 100%; height: 100%; object-fit: cover; min-height: 350px;">
+<div class="detail-container">
+    <div class="detail-card">
+        <div class="detail-img-wrapper">
+            <img src="<?= $gambar_placeholder ?>" alt="<?= $judul_paket ?>" class="detail-img">
         </div>
 
-        <div style="flex: 1; padding: 40px; min-width: 300px; display: flex; flex-direction: column; justify-content: center;">
-            <p style="color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Layanan Khusus B2B</p>
-            <h2 style="color: var(--dark); font-size: 2.2rem; margin-top: 0; margin-bottom: 15px; font-weight: 700;"><?= $judul_paket ?></h2>
-            <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px;">
-                <?= $deskripsi_paket ?>
-            </p>
-            
-            <div style="background: var(--light); padding: 25px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 30px;">
-                <p style="margin: 0 0 12px 0; font-weight: 600; color: var(--dark); font-size: 1.05rem;">Cara Pemesanan Paket:</p>
-                <ol style="margin: 0; padding-left: 20px; color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
-                    <li style="margin-bottom: 8px;">Klik tombol "Ajukan Penawaran" di bawah ini.</li>
-                    <li style="margin-bottom: 8px;">Isi formulir dengan data PIC (Person in Charge) dan perusahaan Anda.</li>
-                    <li style="margin-bottom: 0;">Tim kami akan menghubungi Anda via WhatsApp untuk mendiskusikan *Term of Payment* (TOP) dan penjadwalan *sample*.</li>
+        <div class="detail-content">
+            <p class="detail-badge">Layanan Khusus B2B</p>
+            <h2 class="detail-title"><?= $judul_paket ?></h2>
+            <p class="detail-desc"><?= $deskripsi_paket ?></p>
+
+            <div class="detail-steps-box">
+                <p class="detail-steps-title">Cara Pemesanan Paket:</p>
+                <ol class="detail-steps-list">
+                    <li>Klik tombol "Pesan Paket Sekarang" di bawah ini.</li>
+                    <li>Isi formulir pengiriman dan lengkapi data Anda.</li>
+                    <li>Tim kami akan menghubungi Anda via WhatsApp untuk mendiskusikan harga, *Term of Payment* (TOP), dan detail pesanan.</li>
                 </ol>
             </div>
 
-            <a href="checkout.php?type=sample&paket=<?= urlencode($jenis_paket) ?>" class="btn-action" style="text-align: center; font-size: 1.1rem; padding: 15px;">
-                Ajukan Penawaran / Minta Sample
+            <a href="checkout.php?type=paket&paket=<?= urlencode($jenis_paket) ?>" class="btn-action text-center w-100">
+                Pesan Paket Sekarang
             </a>
         </div>
     </div>
 </div>
 
-<footer style="background: var(--dark); color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem;">
-    <p style="margin: 0; font-size: 0.9rem; color: #9ca3af;">&copy; <?= date('Y') ?> Krisna Jaya Catering. Sistem Pemesanan Online.</p>
+<footer class="site-footer">
+    <p>&copy; <?= date('Y') ?> Krisna Jaya Catering. Sistem Pemesanan Online.</p>
 </footer>
 
 </body>

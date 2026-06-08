@@ -1,10 +1,10 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "Trilytr246"; // Pastikan password ini memang benar password MySQL Anda
-$db   = "krisnajaya_db"; // <-- Pastikan namanya krisnajaya_db
+$pass = "Trilytr246";
+$db   = "krisnajaya_db"; // Hapus backslash
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = mysqli_connect($host, $user, $pass, $db); // Hapus semua backslash
 
 if (!$conn) {
     die("Koneksi database gagal: " . mysqli_connect_error());

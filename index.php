@@ -1,8 +1,7 @@
 <?php
 require 'Database/config.php';
-require 'Logic/fuction.php';
+require 'Logic/fuction.php'; // Pastikan nama file Anda fuction.php sesuai gambar Anda
 
-// Logika Tambah ke Keranjang
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 if(isset($_GET['add_to_cart'])) {
     $id_menu = $_GET['add_to_cart'];
@@ -26,11 +25,11 @@ require 'includes/header.php';
 
 <div class="container">
     
-    <div style="text-align: center;">
+    <div class="text-center">
         <p class="section-subtitle">Layanan Kami</p>
         <h2 class="section-title">Pilihan Paket Catering</h2>
     </div>
-    <p class="center-text">
+    <p class="section-desc">
         Krisna Jaya Catering berdedikasi memberikan layanan jasa boga berkualitas. Pilih paket yang paling sesuai dengan kebutuhan industri atau acara Anda.
     </p>
 
@@ -72,12 +71,12 @@ require 'includes/header.php';
         </a>
     </div>
 
-    <hr style="border: none; border-top: 1px solid var(--border); margin: 60px 0;">
+    <hr class="divider">
 
-    <div style="text-align: center;" id="katalog">
+    <div class="text-center" id="katalog">
         <p class="section-subtitle">Pesan Sekarang</p>
         <h2 class="section-title">Katalog Menu Satuan</h2>
-        <p class="center-text" style="margin-bottom: 40px;">
+        <p class="section-desc mb-30">
             Pilih menu untuk dimasukkan ke keranjang belanja. Anda dapat melanjutkan untuk <i>Checkout</i> pesanan atau sekadar meminta pengiriman <i>sample</i>.
         </p>
     </div>
@@ -91,7 +90,7 @@ require 'includes/header.php';
                 <h3><?= htmlspecialchars($menu['name']) ?></h3>
                 <p class="menu-desc"><?= htmlspecialchars($menu['description']) ?></p>
                 <p class="menu-price"><?= formatRupiah($menu['price']) ?></p>
-                <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action" style="width: 100%; text-align: center;">
+                <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action">
                     Tambah ke Keranjang
                 </a>
             </div>
@@ -100,8 +99,8 @@ require 'includes/header.php';
 
 </div>
 
-<footer style="background: var(--dark); color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem;">
-    <p style="margin: 0; font-size: 0.9rem; color: #9ca3af;">&copy; <?= date('Y') ?> Krisna Jaya Catering. Sistem Pemesanan Online.</p>
+<footer class="site-footer">
+    <p>&copy; <?= date('Y') ?> Krisna Jaya Catering. Sistem Pemesanan Online.</p>
 </footer>
 
 </body>
