@@ -1,8 +1,11 @@
 <?php
+
 require 'Database/config.php';
-require 'Logic/fuction.php'; // Pastikan nama file Anda fuction.php sesuai gambar Anda
+
+require 'Logic/fuction.php'; // Pastikan nama file Anda fuction.php
 
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
+
 if(isset($_GET['add_to_cart'])) {
     $id_menu = $_GET['add_to_cart'];
     if(isset($_SESSION['cart'][$id_menu])) {
@@ -15,6 +18,7 @@ if(isset($_GET['add_to_cart'])) {
 }
 
 $menus = getAllMenus($conn);
+
 require 'includes/header.php';
 ?>
 
@@ -23,8 +27,29 @@ require 'includes/header.php';
     <p>Solusi profesional untuk kebutuhan konsumsi operasional pabrik, acara perkantoran, maupun momen spesial Anda. Langsung dari dapur kami ke lokasi Anda.</p>
 </div>
 
+<div class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
+    <div class="text-center" id="lokasi">
+        <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 5px;">Lokasi Dapur Krisna Jaya</h2>
+        <p class="section-desc" style="margin-bottom: 15px; font-size: 0.95rem;">
+            <strong>PT. Krisna Jaya Abadi</strong> | Jl. Pondok Bambu Batas I No.8, Kel. Pondok Bambu, Kec. Duren Sawit
+        </p>
+    </div>
+
+    <div class="map-container" style="margin: 0 auto; box-shadow: none;">
+        <iframe 
+            src="https://maps.google.com/maps?q=Jl.+Pondok+Bambu+Batas+I+No.8,+Pondok+Bambu,+Duren+Sawit&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            style="height: 300px; border-radius: 8px;">
+        </iframe>
+    </div>
+</div>
+
+<hr class="divider">
+
 <div class="container">
-    
+ 
     <div class="text-center">
         <p class="section-subtitle">Layanan Kami</p>
         <h2 class="section-title">Pilihan Paket Catering</h2>
@@ -77,10 +102,10 @@ require 'includes/header.php';
         <p class="section-subtitle">Pesan Sekarang</p>
         <h2 class="section-title">Katalog Menu Satuan</h2>
         <p class="section-desc mb-30">
-            Pilih menu untuk dimasukkan ke keranjang belanja. Anda dapat melanjutkan untuk <i>Checkout</i> pesanan atau sekadar meminta pengiriman <i>sample</i>.
+            Pilih menu untuk dimasukkan ke keranjang belanja. Anda dapat melanjutkan untuk Checkout pesanan atau sekadar meminta pengiriman sample.
         </p>
     </div>
-    
+ 
     <div class="menu-grid">
         <?php foreach($menus as $menu) : ?>
             <div class="menu-card">
@@ -99,9 +124,4 @@ require 'includes/header.php';
 
 </div>
 
-<footer class="site-footer">
-    <p>&copy; <?= date('Y') ?> Krisna Jaya Catering. Sistem Pemesanan Online.</p>
-</footer>
-
-</body>
-</html>
+<?php require 'includes/footer.php'; ?>
