@@ -36,7 +36,7 @@ if(isset($_SESSION['cart'])) {
             $path_foto_header = dirname(__DIR__) . '/' . $_SESSION['user_photo'];
             $header_photo = (!empty($_SESSION['user_photo']) && file_exists($path_foto_header)) 
                 ? '../' . $_SESSION['user_photo'] . '?v=' . time()  // Penyesuaian path foto profil
-                : "https://ui-avatars.com/api/?name=" . urlencode($_SESSION['user_name']) . "&background=10b981&color=fff";
+                : "https://ui-avatars.com/api/?name=" . urlencode($_SESSION['user_name']) . "&background=1e3a8a&color=fff";
         ?>
             <a href="riwayat.php" style="color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-right: 2px solid var(--border); padding-right: 15px;">Riwayat Pesanan</a>
 

@@ -1,12 +1,12 @@
-/* 1. VARIABEL & RESET DASAR */
-:root { 
-    --primary: #10b981;       
-    --primary-dark: #059669;  
-    --secondary: #f59e0b;     
-    --danger: #ef4444;        
-    --danger-dark: #dc2626;
-    --dark: #1f2937;          
-    --light: #f9fafb;         
+/* 1. VARIABEL & RESET DASAR (TEMA BIRU MERAH KRISNA JAYA) */
+:root {
+    --primary: #1e3a8a; /* Biru Tua dari Logo Kendi */
+    --primary-dark: #172554; /* Biru Lebih Tua untuk efek saat tombol disorot */
+    --secondary: #dc2626; /* Merah menyala dari teks Company Profile */
+    --danger: #ef4444;
+    --danger-dark: #b91c1c;
+    --dark: #1f2937;
+    --light: #f8fafc;
     --white: #ffffff;
     --gray: #6b7280;
     --border: #e5e7eb;
@@ -14,16 +14,18 @@
     --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* FIX FOOTER MENGGANTUNG: Gunakan Flexbox pada body */
-body { 
-    font-family: 'Inter', sans-serif; 
-    margin: 0; 
-    background-color: var(--light); 
-    color: var(--dark); 
+/* FIX FOOTER MENGGANTUNG & BACKGROUND GRADASI POSTER */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    /* Latar belakang gradasi biru muda persis seperti poster */
+    background: linear-gradient(180deg, #a5f3fc 0%, #38bdf8 100%);
+    background-attachment: fixed; /* Agar gradasi tidak rusak/terpotong saat di-scroll */
+    color: var(--dark);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Memaksa body minimal setinggi layar */
+    min-height: 100vh;
 }
 
 /* MENAMBAHKAN width: 100% AGAR TIDAK MENGKERUT */
@@ -34,14 +36,14 @@ body {
 .hidden-input { display: none; }
 
 /* 2. HEADER & FOOTER */
-header { 
-    background: var(--white); 
-    padding: 1rem 5%; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: sticky; 
-    top: 0; 
+header {
+    background: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
     z-index: 1000;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
@@ -55,28 +57,28 @@ header a { text-decoration: none; }
 .header-profile-link:hover .header-profile-img { transform: scale(1.1); }
 .header-login-link { color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-right: 2px solid var(--border); padding-right: 15px; }
 
-.nav-btn { 
+.nav-btn {
     background: var(--primary); color: var(--white); padding: 10px 20px; font-weight: 600; font-size: 0.95rem;
     border-radius: 50px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
 }
 .nav-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 .cart-badge { background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; margin-left: 5px; }
 
-/* PENGATURAN FOOTER DI BAWAH */
-.site-footer { 
-    background: #111827; 
-    text-align: center; 
-    padding: 2rem 1rem; 
-    margin-top: auto; /* Mendorong footer ke paling bawah */
+/* PENGATURAN FOOTER DI BAWAH (Warna Biru Tua) */
+.site-footer {
+    background: var(--primary-dark);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
 }
-.site-footer p { 
-    margin: 0; 
-    font-size: 0.95rem;  
-    color: var(--white); 
+.site-footer p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--white);
 }
 
 /* 3. TOMBOL & FORM UMUM */
-.btn-action { 
+.btn-action {
     background: var(--primary); color: var(--white); border: none; padding: 12px 20px; font-weight: 600;
     cursor: pointer; border-radius: 8px; text-decoration: none; display: inline-block; box-sizing: border-box;
     transition: background 0.3s ease; text-align: center;
@@ -84,22 +86,22 @@ header a { text-decoration: none; }
 .btn-action.w-100 { width: 100%; display: block; }
 .btn-action:hover { background: var(--primary-dark); }
 .btn-secondary { background: var(--secondary); }
-.btn-secondary:hover { background: #d97706; }
+.btn-secondary:hover { background: #b91c1c; } /* Efek hover merah pekat */
 .btn-danger { background: var(--danger); color: white; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 600; display: block; transition: 0.3s; border: none; cursor: pointer; }
 .btn-danger:hover { background: var(--danger-dark); }
 
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark); font-size: 0.95rem;}
-.form-group input, .form-group textarea { 
+.form-group input, .form-group textarea {
     width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s; box-sizing: border-box;
 }
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); }
 .input-readonly { background: #eee; cursor: not-allowed; }
 .input-file-custom { border: 1px dashed var(--border); padding: 10px; background: var(--light); }
 .label-optional { color: var(--gray); font-size: 0.8rem; font-weight: normal; }
 
 /* 4. HALAMAN BERANDA (INDEX) */
-.hero { background: linear-gradient(rgba(16, 185, 129, 0.85), rgba(5, 150, 105, 0.9)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; color: var(--white); text-align: center; padding: 6rem 20px; margin-bottom: 3rem; }
+.hero { background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(23, 37, 84, 0.9)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; color: var(--white); text-align: center; padding: 6rem 20px; margin-bottom: 3rem; }
 .hero h2 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px; }
 .hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.7; opacity: 0.9; }
 
