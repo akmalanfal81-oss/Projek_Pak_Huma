@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "Trilytr246";
-$db   = "krisnajaya_db"; // Hapus backslash
+$db   = "krisnajaya_db;";
 
 $conn = mysqli_connect($host, $user, $pass, $db); // Hapus semua backslash
 
