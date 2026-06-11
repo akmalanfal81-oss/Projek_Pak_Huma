@@ -89,7 +89,7 @@ $user = mysqli_fetch_assoc($query);
 $path_di_server = __DIR__ . '/' . $user['photo'];
 $foto_profil = (!empty($user['photo']) && file_exists($path_di_server)) 
     ? $user['photo'] . '?v=' . time() 
-    : "https://ui-avatars.com/api/?name=" . urlencode($user['name']) . "&background=10b981&color=fff&size=150";
+    : "https://ui-avatars.com/api/?name=" . urlencode($user['name']) . "&background=1e3a8a&color=fff&size=150";
 
 ?>
 
