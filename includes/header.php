@@ -23,7 +23,11 @@ if(isset($_SESSION['cart'])) {
 <body>
 
 <header>
-    <a href="index.php"><h1>Krisna Jaya</h1></a>
+    <a href="index.php" class="brand-logo">
+        <img src="../Foto/Logo-Catering.png" alt="Logo Krisna Jaya" class="logo-img">
+        <h1>Krisna Jaya</h1>
+    </a>
+    
     <nav class="header-nav">
  
         <?php if(isset($_SESSION['user_id'])): 
@@ -31,7 +35,7 @@ if(isset($_SESSION['cart'])) {
             // PERBAIKAN: Pengecekan file dari dalam folder 'includes'
             $path_foto_header = dirname(__DIR__) . '/' . $_SESSION['user_photo'];
             $header_photo = (!empty($_SESSION['user_photo']) && file_exists($path_foto_header)) 
-                ? $_SESSION['user_photo'] . '?v=' . time() 
+                ? '../' . $_SESSION['user_photo'] . '?v=' . time()  // Penyesuaian path foto profil
                 : "https://ui-avatars.com/api/?name=" . urlencode($_SESSION['user_name']) . "&background=10b981&color=fff";
         ?>
             <a href="riwayat.php" style="color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-right: 2px solid var(--border); padding-right: 15px;">Riwayat Pesanan</a>
