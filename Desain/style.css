@@ -1,8 +1,8 @@
 /* 1. VARIABEL & RESET DASAR (TEMA BIRU MERAH KRISNA JAYA) */
 :root {
-    --primary: #1e3a8a; 
-    --primary-dark: #172554; 
-    --secondary: #dc2626; 
+    --primary: #1e3a8a; /* Biru Tua dari Logo Kendi */
+    --primary-dark: #172554; /* Biru Lebih Tua untuk efek saat tombol disorot */
+    --secondary: #dc2626; /* Merah menyala dari teks Company Profile */
     --danger: #ef4444;
     --danger-dark: #b91c1c;
     --dark: #1f2937;
@@ -14,11 +14,13 @@
     --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+/* FIX FOOTER MENGGANTUNG & BACKGROUND GRADASI POSTER */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
-    background-attachment: fixed; 
+    /* Latar belakang gradasi biru muda persis seperti poster */
+    background: linear-gradient(180deg, #a5f3fc 0%, #38bdf8 100%);
+    background-attachment: fixed; /* Agar gradasi tidak rusak/terpotong saat di-scroll */
     color: var(--dark);
     line-height: 1.6;
     display: flex;
@@ -26,6 +28,7 @@ body {
     min-height: 100vh;
 }
 
+/* MENAMBAHKAN width: 100% AGAR TIDAK MENGKERUT */
 .container { max-width: 1100px; margin: 2rem auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
@@ -61,13 +64,18 @@ header a { text-decoration: none; }
 .nav-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 .cart-badge { background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; margin-left: 5px; }
 
+/* PENGATURAN FOOTER DI BAWAH (Warna Biru Tua) */
 .site-footer {
     background: var(--primary-dark);
     text-align: center;
     padding: 2rem 1rem;
     margin-top: auto;
 }
-.site-footer p { margin: 0; font-size: 0.95rem; color: var(--white); }
+.site-footer p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--white);
+}
 
 /* 3. TOMBOL & FORM UMUM */
 .btn-action {
@@ -78,7 +86,7 @@ header a { text-decoration: none; }
 .btn-action.w-100 { width: 100%; display: block; }
 .btn-action:hover { background: var(--primary-dark); }
 .btn-secondary { background: var(--secondary); }
-.btn-secondary:hover { background: #b91c1c; }
+.btn-secondary:hover { background: #b91c1c; } /* Efek hover merah pekat */
 .btn-danger { background: var(--danger); color: white; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 600; display: block; transition: 0.3s; border: none; cursor: pointer; }
 .btn-danger:hover { background: var(--danger-dark); }
 
@@ -92,207 +100,35 @@ header a { text-decoration: none; }
 .input-file-custom { border: 1px dashed var(--border); padding: 10px; background: var(--light); }
 .label-optional { color: var(--gray); font-size: 0.8rem; font-weight: normal; }
 
-/* 4. HALAMAN BERANDA (INDEX) - TEMA ELEGAN FULLSCREEN */
-.hero { 
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    background-attachment: fixed; 
-    min-height: 100vh; /* Diperbesar jadi 100vh agar sangat lega */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white); 
-    padding: 2rem 20px; 
-    margin-bottom: 4rem;
-    text-align: center;
-    overflow: hidden;
-}
+/* 4. HALAMAN BERANDA (INDEX) */
+.hero { background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(23, 37, 84, 0.9)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; color: var(--white); text-align: center; padding: 6rem 20px; margin-bottom: 3rem; }
+.hero h2 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px; }
+.hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.7; opacity: 0.9; }
 
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(30, 58, 138, 0.85));
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%; /* Agar slider di dalamnya bisa lebar maksimal */
-    max-width: 1200px; /* Batas sangat lebar */
-    margin: 0 auto;
-    padding-top: 40px; /* Memberi ruang di atas teks */
-}
-
-.hero h2 { 
-    font-size: 3.5rem; 
-    margin-top: 0; margin-bottom: 20px; 
-    font-weight: 800; 
-    letter-spacing: -1px; 
-    line-height: 1.2; 
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.5); 
-}
-
-.hero p { 
-    font-size: 1.2rem; 
-    margin: 0 auto 40px auto; 
-    line-height: 1.8; 
-    opacity: 0.95; 
-    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
-    font-weight: 400;
-    max-width: 900px;
-}
-
-/* Styling Tombol Aksi */
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.btn-hero-primary {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 16px 35px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4);
-}
-.btn-hero-primary:hover {
-    background: var(--danger-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(220, 38, 38, 0.6);
-}
-
-.btn-hero-outline {
-    background: transparent;
-    color: var(--white);
-    padding: 16px 35px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid var(--white);
-    transition: all 0.3s ease;
-}
-.btn-hero-outline:hover {
-    background: var(--white);
-    color: var(--primary);
-    transform: translateY(-3px);
-}
-
-
-/* Animasi Masuk */
-.animate-up {
-    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-    transform: translateY(40px);
-}
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-@keyframes slideUpFade {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==============================================================
-   SLIDER DI DALAM BANNER
-============================================================== */
-.hero-slider-container {
-    width: 100%;
-    max-width: 1000px; /* Diperbesar agar area banner lebih luas */
-    margin: 30px auto 0;
-    position: relative;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-}
-
-.hero-image-slider {
-    display: flex;
-    gap: 20px; 
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
-    scroll-behavior: smooth;
-    padding: 20px 0; 
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
-}
-
-.hero-image-slider::-webkit-scrollbar { 
-    display: none; 
-}
-
-.collage-item {
-    flex: 0 0 100%; /* UBAH: 100% memastikan hanya 1 foto yang tampil di dalam area container */
-    scroll-snap-align: center; /* Mengunci foto agar berhenti presisi di tengah */
-    border-radius: 16px; 
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5); 
-    border: 4px solid rgba(255,255,255,0.4);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.collage-item:hover {
-    transform: scale(1.02); 
-    border-color: rgba(255,255,255,1);
-}
-
-.collage-item img {
-    width: 100%;
-    height: 450px; /* UBAH: Diperbesar dari 350px menjadi 450px */
-    object-fit: cover;
-    object-position: center; 
-    display: block;
-}
-
-/* Penyesuaian untuk layar HP */
-@media (max-width: 768px) {
-    .hero { min-height: 80vh; padding: 6rem 10px; }
-    .hero h2 { font-size: 2.2rem; }
-    .hero-buttons { flex-direction: column; gap: 15px; }
-    .btn-hero-primary, .btn-hero-outline { width: 100%; text-align: center; box-sizing: border-box; }
-    
-    .collage-item {
-        flex: 0 0 100%; /* Pastikan di HP juga 1 foto full */
-    }
-    .collage-item img {
-        height: 300px; /* Diperbesar untuk tampilan HP */
-    }
-}
-
-
-/* ... SISA KODE BAWAHNYA TETAP SAMA ... */
 .section-title { text-align: center; margin-bottom: 15px; font-size: 2.2rem; font-weight: 700; color: var(--dark); }
 .section-subtitle { text-align: center; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 5px; }
 .section-desc { text-align: center; margin-bottom: 50px; color: var(--gray); font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto; }
 
 .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
-.package-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); transition: transform 0.3s ease; border: 1px solid var(--border); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; color: inherit; cursor: pointer;}
-.package-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
-.package-img { width: 100%; height: 200px; object-fit: cover; }
-.package-content { padding: 25px; }
+.package-card { background: var(--white); border-radius: 12px; padding: 30px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid var(--border); position: relative; overflow: hidden; text-decoration: none; display: block; color: inherit; cursor: pointer;}
+.package-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.package-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary); }
 .package-card h3 { color: var(--dark); font-size: 1.4rem; margin-top: 0; }
 .package-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 20px;}
 .package-card ul { list-style: none; padding: 0; text-align: left; }
-.package-card ul li { padding: 10px 0; border-bottom: 1px dashed var(--border); font-size: 0.95rem; color: var(--dark); }
+.package-card ul li { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--dark); display: flex; align-items: center; gap: 10px;}
 .package-card ul li:last-child { border-bottom: none; }
 
-.divider { border: none; border-top: 1px solid rgba(30, 58, 138, 0.2); margin: 60px 0; }
-
+.divider { border: none; border-top: 1px solid var(--border); margin: 60px 0; }
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-.menu-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); text-align: center; border: 1px solid var(--border); transition: transform 0.3s; overflow: hidden; display: flex; flex-direction: column; }
-.menu-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-.menu-img-placeholder { width: 100%; height: 180px; background-size: cover; background-position: center; border-bottom: 3px solid var(--primary); }
-.menu-content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
-.menu-card h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: var(--dark); }
-.menu-desc { font-size: 0.9rem; color: var(--gray); margin: 0; flex: 1; }
-.menu-price { color: var(--secondary); font-weight: 800; font-size: 1.3rem; margin: 15px 0; }
+.menu-card { background: var(--white); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); text-align: center; border: 1px solid var(--border); transition: transform 0.3s; }
+.menu-card:hover { transform: translateY(-3px); }
+.menu-img-placeholder { width: 100%; height: 180px; background: #f3f4f6; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.9rem; }
+.menu-card h3 { margin: 10px 0 5px; font-size: 1.2rem; color: var(--dark); }
+.menu-desc { font-size: 0.9rem; color: var(--gray); margin-top: 0; min-height: 40px; }
+.menu-price { color: var(--primary); font-weight: 700; font-size: 1.3rem; margin: 15px 0; }
 
+/* 5. HALAMAN DETAIL PAKET */
 .detail-container { max-width: 1100px; margin: 40px auto 60px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .back-link { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 20px; }
 .detail-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; display: flex; flex-wrap: wrap; }
@@ -307,14 +143,17 @@ header a { text-decoration: none; }
 .detail-steps-list { margin: 0; padding-left: 20px; color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
 .detail-steps-list li { margin-bottom: 8px; }
 
+/* 6. HALAMAN KERANJANG & CHECKOUT */
 .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow);}
 .cart-table th { background: var(--primary); color: var(--white); padding: 15px; text-align: left; font-weight: 600; }
 .cart-table td { padding: 15px; border-bottom: 1px solid var(--border); }
 .cart-total-price { font-size: 1.1rem; }
 .flex-gap-15 { display: flex; gap: 15px; }
+/* Melebarkan Checkout */
 .checkout-container { max-width: 800px; margin: 40px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .checkout-card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); }
 
+/* 7. PROSES CHECKOUT (SUCCESS PAGE) */
 .success-container { text-align: center; margin-top: 50px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .success-title { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
 .success-subtitle { font-size: 1.1rem; color: var(--gray); }
@@ -326,6 +165,8 @@ header a { text-decoration: none; }
 .success-subnote { color: var(--gray); margin-bottom: 40px; }
 .btn-back-home { max-width: 250px; margin: 0 auto; }
 
+/* 8. AUTH (LOGIN / REGISTER) */
+/* Diperlebar dan dimaksimalkan width-nya */
 .auth-container { max-width: 600px; margin: 40px auto; background: var(--white); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; width: 100%; box-sizing: border-box; }
 .tab-header { display: flex; background: var(--light); border-bottom: 1px solid var(--border); }
 .tab-btn { flex: 1; padding: 15px 0; text-align: center; font-weight: 600; color: var(--gray); cursor: pointer; transition: 0.3s; }
@@ -336,18 +177,23 @@ header a { text-decoration: none; }
 .alert-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
 .alert-success { background: #d1fae5; color: #047857; border: 1px solid #6ee7b7; }
 
+/* 9. PROFIL PENGGUNA */
+/* Mengembalikan settingan Grid agar berdampingan dan width 100% */
 .profile-container { max-width: 900px; margin: 50px auto 80px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .profile-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; }
 .profile-header { background: var(--primary); padding: 40px 20px; text-align: center; color: var(--white); }
 .avatar-wrapper { position: relative; width: 140px; height: 140px; margin: 0 auto 15px auto; border-radius: 50%; overflow: hidden; border: 4px solid var(--white); cursor: pointer; }
 .profile-avatar { width: 100%; height: 100%; object-fit: cover; }
 .profile-body { padding: 40px; }
+
+/* KODE YANG HILANG: Mengatur input menjadi kotak berdampingan (Grid) */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
 .profile-actions { display: flex; gap: 15px; margin-top: 20px; }
 .btn-save { flex: 2; padding: 15px; font-size: 1.1rem; }
 .btn-logout { flex: 1; padding: 15px; font-size: 1.1rem; }
 
+/* 10. RIWAYAT PESANAN */
 .history-container { max-width: 1000px; margin: 40px auto 80px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
 .history-header-page { margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 15px; }
 .history-title { font-size: 2rem; color: var(--dark); margin: 0 0 5px 0; }
@@ -389,6 +235,7 @@ header a { text-decoration: none; }
 .badge-success { background: #d1fae5; color: #047857; border: 1px solid #6ee7b7; } 
 .badge-type { background: #f3f4f6; color: var(--dark); border: 1px solid var(--border); }
 
+/* Progress Tracker */
 .progress-container { display: flex; justify-content: space-between; margin: 40px 0; position: relative; }
 .progress-container::before { content: ""; position: absolute; top: 15px; left: 0; width: 100%; height: 4px; background: var(--border); z-index: 1; }
 .progress-step { position: relative; z-index: 2; text-align: center; }
@@ -397,64 +244,51 @@ header a { text-decoration: none; }
 .progress-step.active { color: var(--primary); font-weight: 600; }
 .progress-label { font-size: 0.8rem; }
 
-.qty-btn { padding: 5px 10px; background: var(--light); border: 1px solid var(--border); cursor: pointer; text-decoration: none; color: var(--dark); font-weight: bold; border-radius: 4px; }
+/* Tombol Qty +/- */
+.qty-btn {
+    padding: 5px 10px;
+    background: var(--light);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
+    border-radius: 4px;
+}
 .qty-btn:hover { background: var(--border); }
 
-.map-container { margin: 40px auto; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); line-height: 0; }
-.map-container iframe { width: 100%; height: 400px; border: 0; }
-
-.brand-logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-.logo-img { height: 70px; width: auto; object-fit: contain; border-radius: 50%; }
-.brand-logo h1 { margin: 0; }
-
-/* ==============================================================
-   13. HALAMAN TENTANG KAMI (PROFIL PERUSAHAAN)
-============================================================== */
-.about-hero {
-    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(23, 37, 84, 0.95)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
-    color: var(--white);
-    padding: 5rem 20px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.about-hero ~ .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.about-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 30px;
+/* 11. MAP SECTION / LOKASI KAMI */
+.map-container {
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    text-align: center;
     border: 1px solid var(--border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(50% - 15px); 
-    box-sizing: border-box;
+    line-height: 0; 
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+}
+
+/* 12. BRAND LOGO STYLING */
+.brand-logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+    text-decoration: none;
 }
 
-.about-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(30, 58, 138, 0.3);
+.logo-img {
+    height: 70px; /* Ukuran diperbesar dari 50px menjadi 70px */
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%; 
 }
 
-.about-poster {
-    max-width: 100%; 
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    border: 3px solid var(--light);
-    margin-top: 15px; 
-}
-
-@media (max-width: 768px) {
-    .about-card { width: 100%; }
+/* Pastikan tulisan h1 tidak terdorong */
+.brand-logo h1 {
+    margin: 0;
 }
