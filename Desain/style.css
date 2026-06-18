@@ -157,12 +157,15 @@ header a { text-decoration: none; }
 .hero-image-slider::-webkit-scrollbar { display: none; }
 
 .collage-item {
-    flex: 0 0 100%; /* Memastikan 1 slide = 100% lebar container */
+    flex: 0 0 100%; 
     scroll-snap-align: center;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.1);
-    padding: 10px; /* Ruang agar tidak menyentuh pinggiran */
-    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 16px; 
+    overflow: hidden;
+    background: transparent; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Tambahkan kembali padding agar tidak terlalu rapat */
 }
 
 .collage-item {
