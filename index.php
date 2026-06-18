@@ -1,7 +1,5 @@
 <?php
-
 require 'Database/config.php';
-
 require 'Logic/fuction.php'; // Pastikan nama file Anda fuction.php
 
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
@@ -18,81 +16,84 @@ if(isset($_GET['add_to_cart'])) {
 }
 
 $menus = getAllMenus($conn);
-
 require 'includes/header.php';
 ?>
 
 <div class="hero">
-    <h2>Cita Rasa Nusantara, Higienis & Tepat Waktu</h2>
-    <p>Solusi profesional untuk kebutuhan konsumsi operasional pabrik, acara perkantoran, maupun momen spesial Anda. Langsung dari dapur kami ke lokasi Anda.</p>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <h2 class="animate-up">Cita Rasa Nusantara<br>Higienis & Tepat Waktu</h2>
+        <p class="animate-up delay-1">Solusi profesional untuk kebutuhan konsumsi operasional pabrik, acara perkantoran, maupun momen spesial Anda. Langsung dari dapur kami ke lokasi Anda.</p>
+        
+        <div class="hero-buttons animate-up delay-2">
+            <a href="#katalog" class="btn-hero-primary">Pesan Sekarang</a>
+            <a href="detail_paket.php?paket=prasmanan" class="btn-hero-outline">Lihat Layanan Kami</a>
+        </div>
+
+        <div class="hero-slider-container animate-up delay-3">
+            <div class="hero-image-slider">
+                <div class="collage-item">
+                    <img src="Foto/Foto_Menu_Catering.png" alt="Aneka Nasi Box">
+                </div>
+                <div class="collage-item">
+                    <img src="Foto/Foto_Menu_Catering_2.png" alt="Aneka Prasmanan & Snack">
+                </div>
+                <div class="collage-item">
+                    <img src="Foto/Denah_Jaya_Catering.png" alt="Denah Dapur Kami">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
-    <div class="text-center" id="lokasi">
-        <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 5px;">Lokasi Dapur Krisna Jaya</h2>
-        <p class="section-desc" style="margin-bottom: 15px; font-size: 0.95rem;">
-            <strong>PT. Krisna Jaya Abadi</strong> | Jl. Pondok Bambu Batas I No.8, Kel. Pondok Bambu, Kec. Duren Sawit
+<div class="container">
+    <div class="text-center">
+        <p class="section-subtitle">Layanan Unggulan Kami</p>
+        <h2 class="section-title">Pilihan Paket Catering</h2>
+        <p class="section-desc">
+            Pilih paket yang paling sesuai dengan kebutuhan industri atau acara spesial Anda. Kami menyajikan hidangan terbaik dengan standar kebersihan tertinggi.
         </p>
     </div>
 
-    <div class="map-container" style="margin: 0 auto; box-shadow: none;">
-        <iframe 
-            src="https://maps.google.com/maps?q=Jl.+Pondok+Bambu+Batas+I+No.8,+Pondok+Bambu,+Duren+Sawit&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            style="height: 300px; border-radius: 8px;">
-        </iframe>
-    </div>
-</div>
-
-<hr class="divider">
-
-<div class="container">
- 
-    <div class="text-center">
-        <p class="section-subtitle">Layanan Kami</p>
-        <h2 class="section-title">Pilihan Paket Catering</h2>
-    </div>
-    <p class="section-desc">
-        Krisna Jaya Catering berdedikasi memberikan layanan jasa boga berkualitas. Pilih paket yang paling sesuai dengan kebutuhan industri atau acara Anda.
-    </p>
-
     <div class="package-grid">
         <a href="detail_paket.php?paket=industri" class="package-card">
-            <h3>Pabrik & Industri</h3>
-            <p>Konsumsi harian karyawan dengan menu terukur.</p>
-            <ul>
-                <li>Menu rotasi per 30 hari</li>
-                <li>Karbohidrat, Protein, Sayur</li>
-                <li>Buah segar / ekstra snack</li>
-                <li>Pengiriman tepat waktu</li>
-                <li>Opsi permintaan sample</li>
-            </ul>
+            <img src="Foto/Denah_Jaya_Catering.png" alt="Dapur Kami" class="package-img">
+            <div class="package-content">
+                <h3>Pabrik & Industri</h3>
+                <p>Konsumsi harian karyawan dengan menu terukur.</p>
+                <ul>
+                    <li>✅ Menu rotasi per 30 hari</li>
+                    <li>✅ Karbohidrat, Protein, Sayur</li>
+                    <li>✅ Pengiriman tepat waktu</li>
+                </ul>
+            </div>
         </a>
 
         <a href="detail_paket.php?paket=box" class="package-card">
-            <h3>Nasi Box Event</h3>
-            <p>Praktis dan elegan untuk rapat atau seminar.</p>
-            <ul>
-                <li>Kemasan bento box premium</li>
-                <li>Varian menu Nusantara</li>
-                <li>Termasuk air mineral</li>
-                <li>Tersegel dan higienis</li>
-                <li>Minimum order 30 porsi</li>
-            </ul>
+            <img src="Foto/Foto_Menu_Catering.png" alt="Nasi Box Event" class="package-img" style="object-position: top;">
+            <div class="package-content">
+                <h3>Nasi Box Event</h3>
+                <p>Praktis dan elegan untuk rapat atau seminar.</p>
+                <ul>
+                    <li>✅ Kemasan bento box premium</li>
+                    <li>✅ Varian menu Nusantara</li>
+                    <li>✅ Minimum order 30 porsi</li>
+                </ul>
+            </div>
         </a>
 
         <a href="detail_paket.php?paket=prasmanan" class="package-card">
-            <h3>Prasmanan</h3>
-            <p>Sajian lengkap untuk acara gathering kantor.</p>
-            <ul>
-                <li>Menu utama & gubukan</li>
-                <li>Fasilitas meja & dekorasi</li>
-                <li>Dilayani pramusaji</li>
-                <li>Dessert & minuman segar</li>
-                <li>Minimum order 100 porsi</li>
-            </ul>
+             <img src="Foto/Foto_Menu_Catering_2.png" alt="Prasmanan" class="package-img">
+             <div class="package-content">
+                <h3>Prasmanan & Snack</h3>
+                <p>Sajian lengkap untuk acara gathering kantor.</p>
+                <ul>
+                    <li>✅ Menu utama & gubukan</li>
+                    <li>✅ Fasilitas meja & dekorasi</li>
+                    <li>✅ Minimum order 100 porsi</li>
+                </ul>
+            </div>
         </a>
     </div>
 
@@ -102,26 +103,48 @@ require 'includes/header.php';
         <p class="section-subtitle">Pesan Sekarang</p>
         <h2 class="section-title">Katalog Menu Satuan</h2>
         <p class="section-desc mb-30">
-            Pilih menu untuk dimasukkan ke keranjang belanja. Anda dapat melanjutkan untuk Checkout pesanan atau sekadar meminta pengiriman sample.
+            Pilih menu satuan untuk dimasukkan ke keranjang belanja Anda.
         </p>
     </div>
  
     <div class="menu-grid">
-        <?php foreach($menus as $menu) : ?>
+        <?php foreach($menus as $menu) : 
+            // Mengambil gambar acak dari Unsplash sebagai ilustrasi makanan satuan
+            $random_img = "https://source.unsplash.com/400x300/?food,indonesian,meal&sig=" . rand(1, 100);
+        ?>
             <div class="menu-card">
-                <div class="menu-img-placeholder">
-                    [Area Foto <?= htmlspecialchars($menu['name']) ?>]
+                <div class="menu-img-placeholder" style="background-image: url('<?= $random_img ?>');">
                 </div>
-                <h3><?= htmlspecialchars($menu['name']) ?></h3>
-                <p class="menu-desc"><?= htmlspecialchars($menu['description']) ?></p>
-                <p class="menu-price"><?= formatRupiah($menu['price']) ?></p>
-                <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action">
-                    Tambah ke Keranjang
-                </a>
+                <div class="menu-content">
+                    <h3><?= htmlspecialchars($menu['name']) ?></h3>
+                    <p class="menu-desc"><?= htmlspecialchars($menu['description']) ?></p>
+                    <p class="menu-price"><?= formatRupiah($menu['price']) ?></p>
+                    <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action">
+                        🛒 Tambah Keranjang
+                    </a>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
+</div>
 
+<div class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
+    <div class="text-center" id="lokasi">
+        <p class="section-subtitle">Kunjungi Dapur Kami</p>
+        <h2 class="section-title">Lokasi Krisna Jaya</h2>
+        <p class="section-desc" style="margin-bottom: 15px;">
+            <strong>PT. Krisna Jaya Abadi</strong> | Jl. Pondok Bambu Batas I No.8, Kel. Pondok Bambu, Kec. Duren Sawit
+        </p>
+    </div>
+
+    <div class="map-container">
+        <iframe 
+            src="https://maps.google.com/maps?q=Jl.+Pondok+Bambu+Batas+I+No.8,+Pondok+Bambu,+Duren+Sawit&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
 </div>
 
 <?php require 'includes/footer.php'; ?>
