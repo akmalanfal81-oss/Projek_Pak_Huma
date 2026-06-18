@@ -97,7 +97,7 @@ header a { text-decoration: none; }
     position: relative;
     background: url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     background-attachment: fixed; 
-    min-height: 100vh; /* Diperbesar jadi 100vh agar sangat lega */
+    min-height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,157 +111,79 @@ header a { text-decoration: none; }
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(30, 58, 138, 0.85));
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.95));
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    width: 100%; /* Agar slider di dalamnya bisa lebar maksimal */
-    max-width: 1200px; /* Batas sangat lebar */
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
-    padding-top: 40px; /* Memberi ruang di atas teks */
+    /* Tambahkan padding-bottom jika perlu untuk menjaga jarak */
+    padding-bottom: 20px; 
 }
 
-.hero h2 { 
-    font-size: 3.5rem; 
-    margin-top: 0; margin-bottom: 20px; 
-    font-weight: 800; 
-    letter-spacing: -1px; 
-    line-height: 1.2; 
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.5); 
-}
+/* Memastikan teks tetap terlihat dengan proporsional */
+.hero h2 { font-size: 3rem; margin: 0 0 20px 0; font-weight: 800; line-height: 1.2; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+.hero p { font-size: 1.1rem; margin: 0 auto 30px auto; max-width: 700px; }
 
-.hero p { 
-    font-size: 1.2rem; 
-    margin: 0 auto 40px auto; 
-    line-height: 1.8; 
-    opacity: 0.95; 
-    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
-    font-weight: 400;
-    max-width: 900px;
-}
-
-/* Styling Tombol Aksi */
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.btn-hero-primary {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 16px 35px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.4);
-}
-.btn-hero-primary:hover {
-    background: var(--danger-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(220, 38, 38, 0.6);
-}
-
-.btn-hero-outline {
-    background: transparent;
-    color: var(--white);
-    padding: 16px 35px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid var(--white);
-    transition: all 0.3s ease;
-}
-.btn-hero-outline:hover {
-    background: var(--white);
-    color: var(--primary);
-    transform: translateY(-3px);
-}
-
-
-/* Animasi Masuk */
-.animate-up {
-    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-    transform: translateY(40px);
-}
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-@keyframes slideUpFade {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==============================================================
-   SLIDER DI DALAM BANNER
-============================================================== */
+/* REVISI SLIDER: Agar tidak terpotong (contain) */
 .hero-slider-container {
     width: 100%;
-    max-width: 1000px; /* Diperbesar agar area banner lebih luas */
-    margin: 30px auto 0;
+    margin-top: 30px;
     position: relative;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
 }
 
 .hero-image-slider {
     display: flex;
-    gap: 20px; 
+    gap: 15px; 
     overflow-x: auto; 
     scroll-snap-type: x mandatory; 
-    scroll-behavior: smooth;
-    padding: 20px 0; 
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    padding: 10px;
+    scrollbar-width: none;
 }
 
-.hero-image-slider::-webkit-scrollbar { 
-    display: none; 
+.hero-image-slider::-webkit-scrollbar { display: none; }
+
+.collage-item {
+    flex: 0 0 100%; /* Memastikan 1 slide = 100% lebar container */
+    scroll-snap-align: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px; /* Ruang agar tidak menyentuh pinggiran */
+    border: 2px solid rgba(255,255,255,0.2);
 }
 
 .collage-item {
-    flex: 0 0 100%; /* UBAH: 100% memastikan hanya 1 foto yang tampil di dalam area container */
-    scroll-snap-align: center; /* Mengunci foto agar berhenti presisi di tengah */
+    flex: 0 0 100%; 
+    scroll-snap-align: center;
     border-radius: 16px; 
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5); 
-    border: 4px solid rgba(255,255,255,0.4);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.collage-item:hover {
-    transform: scale(1.02); 
-    border-color: rgba(255,255,255,1);
+    /* Hilangkan box-shadow atau border jika ingin foto terlihat murni */
+    background: transparent; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .collage-item img {
     width: 100%;
-    height: 450px; /* UBAH: Diperbesar dari 350px menjadi 450px */
-    object-fit: cover;
-    object-position: center; 
+    height: auto; /* UBAH: Menggunakan auto agar tinggi mengikuti rasio asli foto */
+    max-height: 70vh; /* Batasi agar tidak terlalu panjang di layar besar */
+    object-fit: contain; /* Memastikan seluruh foto terlihat tanpa terpotong */
     display: block;
 }
 
 /* Penyesuaian untuk layar HP */
 @media (max-width: 768px) {
-    .hero { min-height: 80vh; padding: 6rem 10px; }
-    .hero h2 { font-size: 2.2rem; }
-    .hero-buttons { flex-direction: column; gap: 15px; }
-    .btn-hero-primary, .btn-hero-outline { width: 100%; text-align: center; box-sizing: border-box; }
+    .hero { min-height: auto; padding: 2rem 10px; }
+    .hero h2 { font-size: 1.8rem; }
     
-    .collage-item {
-        flex: 0 0 100%; /* Pastikan di HP juga 1 foto full */
-    }
     .collage-item img {
-        height: 300px; /* Diperbesar untuk tampilan HP */
+        height: auto; /* Memastikan rasio foto tetap terjaga di HP */
+        max-height: 40vh;
     }
 }
 
