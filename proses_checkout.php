@@ -70,15 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h2 style="color: var(--primary);">Pesanan Berhasil Dibuat!</h2>
                 <p>Terima kasih, <b><?= htmlspecialchars($customer_name) ?></b>.</p>
                 
-                <div style="margin: 30px auto; padding: 20px; border: 2px dashed var(--primary); display: inline-block;">
-                    <p>Kode Transaksi:</p>
-                    <h1 style="color: var(--primary); font-family: monospace;"><?= $trx_code ?></h1>
-                </div>
-                
-                <div class="checkout-card" style="max-width: 500px; margin: 0 auto; text-align: left;">
+                <div class="checkout-card" style="max-width: 500px; margin: 30px auto; text-align: left;">
                     <p><strong>Metode Pembayaran:</strong> <?= htmlspecialchars($payment_method) ?></p>
                     <p>Silakan segera lakukan pembayaran dan konfirmasi via WhatsApp Admin.</p>
-                    <a href="detail_transaksi.php?id=<?= $transaction_id ?>" class="btn-action w-100">Lihat Status & Konfirmasi Pesanan</a>
+                    <!-- Tautan ini mengarah ke detail_transaksi.php tempat QRIS unik akan digenerate berdasarkan ID -->
+                    <a href="detail_transaksi.php?id=<?= $transaction_id ?>" class="btn-action w-100">Lanjut ke Pembayaran & Konfirmasi</a>
                 </div>
             </div>
             <?php

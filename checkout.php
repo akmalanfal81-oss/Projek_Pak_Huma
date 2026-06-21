@@ -55,11 +55,9 @@ $title = ($order_type === 'paket') ? "Form Pemesanan Paket Khusus" : "Form Check
             
             <div class="form-group">
                 <label>Metode Pembayaran</label>
-                <select name="payment_method" class="form-group" style="width: 100%; padding: 12px;">
-                    <option value="QRIS">QRIS (Semua E-Wallet)</option>
-                    <option value="BCA">Transfer BCA</option>
-                    <option value="Mandiri">Transfer Mandiri</option>
-                    <option value="BNI">Transfer BNI</option>
+                <!-- HANYA MENAMPILKAN QRIS -->
+                <select name="payment_method" class="form-group" style="width: 100%; padding: 12px; background: #f8fafc; pointer-events: none;">
+                    <option value="QRIS">QRIS (Semua E-Wallet & M-Banking)</option>
                 </select>
             </div>
             

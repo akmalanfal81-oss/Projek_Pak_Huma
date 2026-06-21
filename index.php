@@ -60,6 +60,24 @@ require 'includes/header.php';
     </div>
 </div>
 
+<div class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
+    <div class="text-center" id="lokasi">
+        <p class="section-subtitle">Kunjungi Dapur Kami</p>
+        <h2 class="section-title">Lokasi Krisna Jaya</h2>
+        <p class="section-desc" style="margin-bottom: 15px;">
+            <strong>PT. Krisna Jaya Abadi</strong> | Jl. Pondok Bambu Batas I No.8, Kel. Pondok Bambu, Kec. Duren Sawit
+        </p>
+    </div>
+
+    <div class="map-container">
+        <iframe
+            src="https://maps.google.com/maps?q=Jl.+Pondok+Bambu+Batas+I+No.8,+Pondok+Bambu,+Duren+Sawit&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
 <div class="container">
     <div class="text-center">
         <p class="section-subtitle">Layanan Unggulan Kami</p>
@@ -135,25 +153,6 @@ require 'includes/header.php';
                 </div>
             </div>
         <?php endforeach; ?>
-    </div>
-</div>
-
-<div class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
-    <div class="text-center" id="lokasi">
-        <p class="section-subtitle">Kunjungi Dapur Kami</p>
-        <h2 class="section-title">Lokasi Krisna Jaya</h2>
-        <p class="section-desc" style="margin-bottom: 15px;">
-            <strong>PT. Krisna Jaya Abadi</strong> | Jl. Pondok Bambu Batas I No.8, Kel. Pondok Bambu, Kec. Duren Sawit
-        </p>
-    </div>
-
-    <div class="map-container">
-        <iframe
-            src="https://maps.google.com/maps?q=Jl.+Pondok+Bambu+Batas+I+No.8,+Pondok+Bambu,+Duren+Sawit&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
     </div>
 </div>
 
