@@ -1,4 +1,3 @@
-// Commit pancingan untuk memunculkan nama Daniel di GitHub
 <?php
 $host = "localhost";
 $user = "root";
