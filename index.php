@@ -1,7 +1,6 @@
 <?php
-
 require 'Database/config.php';
-require 'Logic/fuction.php'; // Pastikan nama file Anda fuction.php
+require 'Logic/fuction.php';
 
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 
@@ -25,7 +24,6 @@ require 'includes/header.php';
     /* Mengatur agar teks judul dipaksa 1 baris di PC/Laptop */
     .title-oneline {
         white-space: nowrap;
-        /* Ukuran font dinamis: akan mengecil otomatis jika layar laptop tidak cukup lebar */
         font-size: clamp(1.8rem, 3.5vw, 3rem) !important;
     }
     
@@ -78,6 +76,7 @@ require 'includes/header.php';
         </iframe>
     </div>
 </div>
+
 <div class="container">
     <div class="text-center">
         <p class="section-subtitle">Layanan Unggulan Kami</p>
@@ -137,20 +136,64 @@ require 'includes/header.php';
  
     <div class="menu-grid">
         <?php foreach($menus as $menu) :
-            // Mengambil gambar acak dari Unsplash sebagai ilustrasi makanan satuan
-            $random_img = "https://source.unsplash.com/400x300/?food,indonesian,meal&sig=" . rand(1, 100);
+            if (strtolower($menu['name']) == 'nasi putih') {
+                $img_src = "Foto/Nasi_Putih.jpeg";
+            } elseif (strtolower($menu['name']) == 'acar kuning') {
+                $img_src = "Foto/Acar_Kuning.jpeg";
+            } elseif (strtolower($menu['name']) == 'ayam kentucky') {
+                $img_src = "Foto/Ayam_Kentucky.png";
+            } elseif (strtolower($menu['name']) == 'daging mercon') {
+                $img_src = "Foto/Daging_Mercon.png";
+            } elseif (strtolower($menu['name']) == 'gurame saos telur asin') {
+                $img_src = "Foto/Gurame_Saos_Telur_Asin.png";
+            } elseif (strtolower($menu['name']) == 'telur ceplok teriyaki') {
+                $img_src = "Foto/Telur_Ceplok_Teriyaki.png";
+            } elseif (strtolower($menu['name']) == 'tahu goreng') {
+                $img_src = "Foto/Tahu_Goreng.png";
+            } elseif (strtolower($menu['name']) == 'kerupuk') {
+                $img_src = "Foto/Kerupuk.png";
+            } elseif (strtolower($menu['name']) == 'sambal') {
+                $img_src = "Foto/Sambal.png";
+            } elseif (strtolower($menu['name']) == 'buah') {
+                $img_src = "Foto/Buah.png";
+            } elseif (strtolower($menu['name']) == 'soto betawi') {
+                $img_src = "Foto/Soto_Betawi.png";
+            } elseif (strtolower($menu['name']) == 'bebek madura') {
+                $img_src = "Foto/Bebek_Madura.png";
+            } elseif (strtolower($menu['name']) == 'ikan fillet saos telur asin') {
+                $img_src = "Foto/Ikan_Fillet_Saos_Telur_Asin.png";
+            } elseif (strtolower($menu['name']) == 'udang saos padang') {
+                $img_src = "Foto/Udang_Saos_Padang.png";
+            } elseif (strtolower($menu['name']) == 'tempe pedas manis') {
+                $img_src = "Foto/Tempe_Pedas_Manis.png";
+            } elseif (strtolower($menu['name']) == 'tahu ondel') {
+                $img_src = "Foto/Tahu_Ondel.png";
+            } elseif (strtolower($menu['name']) == 'asinan betawi') {
+                $img_src = "Foto/Asinan_Betawi.png";
+            } elseif (strtolower($menu['name']) == 'sambal bajak') {
+                $img_src = "Foto/Sambal_Bajak.png";
+            } else {
+                $img_src = "https://source.unsplash.com/400x300/?food,indonesian,meal&sig=" . $menu['id'];
+            }
         ?>
             <div class="menu-card">
-                <div class="menu-img-placeholder" style="background-image: url('<?= $random_img ?>');">
-                </div>
-                <div class="menu-content">
-                    <h3><?= htmlspecialchars($menu['name']) ?></h3>
-                    <p class="menu-desc"><?= htmlspecialchars($menu['description']) ?></p>
-                    <p class="menu-price"><?= formatRupiah($menu['price']) ?></p>
-                    <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action">
+                
+                <a href="detail_menu.php?id=<?= $menu['id'] ?>" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; flex: 1;">
+                    <div class="menu-img-placeholder" style="background-image: url('<?= $img_src ?>');">
+                    </div>
+                    <div class="menu-content" style="padding-bottom: 15px;">
+                        <h3><?= htmlspecialchars($menu['name']) ?></h3>
+                        <p class="menu-desc"><?= htmlspecialchars($menu['description']) ?></p>
+                        <p class="menu-price" style="margin-bottom: 0;"><?= formatRupiah($menu['price']) ?></p>
+                    </div>
+                </a>
+                
+                <div style="padding: 0 20px 20px 20px;">
+                    <a href="index.php?add_to_cart=<?= $menu['id'] ?>" class="btn-action w-100" style="padding: 12px; font-size: 1rem;">
                         🛒 Tambah Keranjang
                     </a>
                 </div>
+
             </div>
         <?php endforeach; ?>
     </div>

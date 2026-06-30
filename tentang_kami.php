@@ -1,11 +1,10 @@
 <?php
-// Perbaikan: Hapus backslash pada fungsi PHP
 if (session_status() === PHP_SESSION_NONE) { 
     session_start(); 
 }
 
 require 'Database/config.php';
-require 'Logic/fuction.php'; // Pastikan nama file Anda memang fuction.php
+require 'Logic/fuction.php'; 
 require 'includes/header.php';
 ?>
 
