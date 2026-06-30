@@ -31,6 +31,8 @@ if(isset($_SESSION['cart'])) {
     
     <nav class="header-nav">
         <a href="tentang_kami.php" style="color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-right: 2px solid var(--border); padding-right: 15px;">Profil Perusahaan</a>
+        
+        <a href="legalitas.php" style="color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-right: 2px solid var(--border); padding-right: 15px; margin-left: 15px;">Legalitas Usaha</a>
 
         <?php if(isset($_SESSION['user_id'])): 
             // Pengecekan file dari dalam folder 'includes'

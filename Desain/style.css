@@ -358,8 +358,7 @@ header a { text-decoration: none; }
     width: calc(50% - 15px); 
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Mengatur elemen agar berbaris ke bawah */
 }
 
 .about-card:hover {
@@ -369,12 +368,14 @@ header a { text-decoration: none; }
 }
 
 .about-poster {
-    max-width: 100%; 
-    height: auto;
+    width: 100%; 
+    height: 320px; /* KUNCI TINGGI: Semua gambar akan memiliki tinggi sama persis */
+    object-fit: contain; /* Memastikan gambar (baik panjang maupun lebar) tidak gepeng atau terpotong */
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     border: 3px solid var(--light);
-    margin-top: 15px; 
+    margin-top: auto; /* TRIK RAHASIA: Mendorong gambar agar selalu sejajar di bagian paling bawah kartu */
+    background: var(--light); /* Memberikan warna latar abu-abu halus untuk mengisi ruang kosong */
 }
 
 @media (max-width: 768px) {
